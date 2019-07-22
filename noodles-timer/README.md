@@ -1,6 +1,6 @@
 # IBM Challange
 
-`cd ./noodles-timer` `npm i` `npm run start`
+`npm i` && `npm run start`
 
 #### NOTA DE ESCLARECIMENTO
 ** Compreendo que a utilização do ES6 modules do NodeJS ainda está em fase de testes
