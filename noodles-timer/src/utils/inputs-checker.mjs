@@ -1,13 +1,13 @@
 export default {
-  input: (text) => {
+  isNumber: (text) => {
     const number = Number(text);
     if (!Number.isNaN(number)) {
       return number;
     }
-    throw 'O input informado é inválido.';
+    throw 'O input informado não é um número.';
   },
 
-  inputs: (inputs) => {
+  timerList: (inputs) => {
     if (inputs[1] === inputs[2]) throw 'As ampulhetas devem ser diferentes.';
 
     return inputs.map((input, index, list) => {

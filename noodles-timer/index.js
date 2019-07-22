@@ -6,9 +6,10 @@
  * para produção, tomei a liberdade de experimentar pela primeira vez o módulo ES6 nativo
  * do NodeJS.
  */
-import App from './src/app/index.mjs';
+import { io } from './src/services/index.mjs';
+import App from './src/app.mjs';
 
-(async ({ version }, App) => {
+(async ({ version }, App, io) => {
 
   const nodeVersion = parseInt(version.substr(1,3));
 
@@ -16,19 +17,19 @@ import App from './src/app/index.mjs';
 
     try {
 
-      console.log(await App());
+      await App(io);
 
     } catch (error) {
       if (typeof error === 'string') {
-        console.error(`ERRO: ${error}`);
+        io.write(`ERRO: ${error}`);
       } else {
-        console.log(error);
+        io.write(error);
       }
     }
 
   } else {
-    console.error('Por favor use uma versão 12 ou superior do NodeJS, https://nodejs.org/en/download/');
+    io.write('Por favor use uma versão 12 ou superior do NodeJS, https://nodejs.org/en/download/');
   }
 
-  console.log('Fim do programa');
-})(process, App);
+  io.write('Fim do programa');
+})(process, App, io);
