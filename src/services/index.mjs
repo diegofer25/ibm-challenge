@@ -1,3 +1,3 @@
-import IO from './io.mjs'
+import IO from './io.mjs';
 
-export const io = IO
+export const io = IO;

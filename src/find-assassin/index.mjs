@@ -10,6 +10,6 @@ export default async (io) => {
   const weapon = await io.select('Com qual arma?', state.weapons);
 
   const { result, iterations } = await investigator.startInvestigation(assassin, place, weapon);
-  io.write(`Resultado encontrado após ${iterations} tentativas`)
+  io.write(`Resultado encontrado após ${iterations} tentativas`);
   io.writeResult(result);
 };
