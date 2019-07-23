@@ -9,8 +9,12 @@ export default async (io) => {
 
   const multiplicatedMinor = getMultiplicatedMinor(minorHourglass, majorHourglass);
 
+  if (majorHourglass - minorHourglass === prepareTime) {
+    return io.writeResult(`O tempo mínimo de preparo do miojo é de ${majorHourglass} minutos`);
+  }
+
   if ((multiplicatedMinor - majorHourglass) === prepareTime) {
     return io.writeResult(`O tempo mínimo de preparo do miojo é de ${multiplicatedMinor} minutos`);
   }
-  throw 'Não é possível cozinhar o Miojo no tempo exato';
+  io.writeResult('Não é possível cozinhar o Miojo no tempo exato');
 };

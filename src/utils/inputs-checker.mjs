@@ -1,7 +1,7 @@
 export default {
   isNumber: (text) => {
     const number = Number(text);
-    if (!Number.isNaN(number)) {
+    if (text && !Number.isNaN(number)) {
       return number;
     }
     throw 'O input informado não é um número.';

@@ -20,6 +20,10 @@ export default class {
       this.createTheory();
       this.checkTheory(assassin, place, weapon);
       result = this.validateResult();
+      if (this.iterations > 200) {
+        console.log(this.suspects, this.places, this.weapons)
+        throw 'Loop infinito detectado';
+      }
     }
     return { result, iterations: this.iterations };
   }
@@ -60,13 +64,19 @@ export default class {
       this.correct = true;
       return `${this.suspect} assassinou Bill Gates em ${this.likelyPlace} com um(a) ${this.likelyWeapon}`;
     case 1:
-      this.suspects = this.suspects.filter(s => s !== this.suspect);
+      if (this.suspects.legth > 1) {
+        this.suspects = this.suspects.filter(s => s !== this.suspect);
+      }
       break;
     case 2:
-      this.places = this.places.filter(p => p !== this.likelyPlace);
+      if (this.places.legth > 1) {
+        this.places = this.places.filter(p => p !== this.likelyPlace);
+      }
       break;
     case 3:
-      this.weapons = this.weapons.filter(w => w !== this.likelyWeapon);
+      if (this.weapons.legth > 1) {
+        this.weapons = this.weapons.filter(w => w !== this.likelyWeapon);
+      }
       break;
     }
     return false;
