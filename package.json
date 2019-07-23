@@ -9,7 +9,8 @@
   "author": "Diego Lamarão",
   "license": "MIT",
   "type": "module",
-  "devDependencies": {
-    "eslint": "^6.1.0"
+  "devDependencies": {},
+  "dependencies": {
+    "inquirer": "^6.5.0"
   }
 }

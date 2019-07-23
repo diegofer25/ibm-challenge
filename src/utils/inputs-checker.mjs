@@ -15,7 +15,6 @@ export default {
       if (prepareTime <= input) {
         return input;
       }
-      console.log(prepareTime, input);
       throw 'O tempo de preparo deve ser menor que das ampulhetas.';
     });
   }
